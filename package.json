@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "build": "webpack --config webpack.config.js"
+    "build": "webpack"
   },
   "keywords": [
     "webpack"
@@ -13,9 +13,14 @@
   "author": "Tung Dao",
   "license": "ISC",
   "devDependencies": {
+    "css-loader": "^3.4.2",
     "html-webpack-plugin": "^3.2.0",
     "raw-loader": "4.0.0",
-    "webpack": "4.41.6",
-    "webpack-cli": "^3.11"
+    "style-loader": "^1.1.3",
+    "webpack": "^4.41.6",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
   }
 }
