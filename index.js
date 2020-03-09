@@ -3,7 +3,7 @@ import _ from 'lodash';
 import './style.css';
 bar();
 function component() {
-    const element = document.createElement('div');
+    var element = document.createElement('div');
     element.innerHTML = _.join(['Hello', 'webpack'], ' ');
     element.classList.add('hello');
     return element;

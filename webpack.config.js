@@ -12,7 +12,27 @@ module.exports = {
         filename: 'main.js' // default one
     },
     optimization: {
-      minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+        minimizer: [new TerserJSPlugin({
+            // terserOptions: {
+            //     output: {
+            //         comments: false,
+            //     },
+            // },
+            minify: (file, sourceMap) => {
+                // https://github.com/mishoo/UglifyJS2#minify-options
+                var uglifyJsOptions = {
+                    /* your `uglify-js` package options */
+                };
+
+                if (sourceMap) {
+                    uglifyJsOptions.sourceMap = {
+                        content: sourceMap,
+                    };
+                }
+
+                return require('uglify-js').minify(file, uglifyJsOptions);
+            },
+        }), new OptimizeCSSAssetsPlugin({})],
     },
     // Transform all txt file to valid module (maybe to javascript file) by raw loader
     module: {
