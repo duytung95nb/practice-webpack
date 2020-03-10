@@ -9,7 +9,8 @@ module.exports = {
     entry: './src/index.js', // this one is default
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'main.js' // default one
+        filename: 'main.js', // default one
+        publicPath: 'http://localhost:8080/',
     },
     optimization: {
         minimizer: [new TerserJSPlugin({
@@ -38,8 +39,15 @@ module.exports = {
     module: {
         rules: [
             { test: /\.txt$/, use: 'raw-loader' },
-            { test: /\.css$/, use: ['style-loader', 'css-loader',] }
-        ]
+            { test: /\.css$/, use: ['style-loader', 'css-loader',] },
+            {
+                test: /\.(png|svg|jpg|gif)$/,
+                loader: 'file-loader',
+                options: {
+                    outputPath: 'assets/images',
+                },
+            },
+        ],
     },
     plugins: [
         new HtmlWebpackPlugin({ template: './src/index.html' }),
