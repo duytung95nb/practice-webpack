@@ -6,7 +6,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const devMode = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-    entry: './index.js', // this one is default
+    entry: './src/index.js', // this one is default
     output: {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js' // default one
@@ -42,7 +42,7 @@ module.exports = {
         ]
     },
     plugins: [
-        new HtmlWebpackPlugin({ template: './index.html' }),
+        new HtmlWebpackPlugin({ template: './src/index.html' }),
         new MiniCssExtractPlugin({
             filename: devMode ? '[name].css' : '[name].[hash].css',
             chunkFilename: devMode ? '[id].css' : '[id].[hash].css',

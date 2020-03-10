@@ -1,6 +1,6 @@
-import bar from './bar';
+import bar from './script/bar';
 import _ from 'lodash';
-import './style.css';
+import './assets/style/style.css';
 bar();
 function component() {
     var element = document.createElement('div');
