@@ -13,4 +13,16 @@ function component() {
     return element;
 }
 
+function getDivLoadMoreScript() {
+    return import('jquery').then(({default: $}) => {
+        var element = document.createElement('div');
+        element.innerHTML = 'Number of body children ' + $('body').children().length;
+        return element;
+    })
+    .catch((error) => "Error while loading the component" + error);
+}
+
 document.body.appendChild(component());
+getDivLoadMoreScript().then((comp) => {
+    document.body.appendChild(comp);
+});
