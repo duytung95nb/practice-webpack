@@ -5,11 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "build": "webpack",
-    "build:local": "webpack --env.NODE_ENV=local --env.production --progress",
+    "build:prod": "webpack --config webpack.prod.js",
+    "build:local": "webpack --config webpack.dev.js",
     "profile": "webpack --profile --json > stats.json",
     "watch": "webpack --watch",
-    "start": "webpack-dev-server --open",
+    "start": "webpack-dev-server --open --config webpack.dev.js",
     "server": "node server.js"
   },
   "keywords": [
@@ -39,6 +39,7 @@
     "webpack-cli": "3.3.11",
     "webpack-dev-middleware": "3.7.2",
     "webpack-dev-server": "3.10.3",
+    "webpack-merge": "^4.2.2",
     "xml-loader": "1.2.1"
   },
   "dependencies": {
