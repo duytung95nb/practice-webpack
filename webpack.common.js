@@ -10,7 +10,7 @@ module.exports = {
     ],
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: '[name].[contenthash].js',
+        filename: '[name].[hash].js',
         publicPath: '/',
     },
     // Transform all txt file to valid module (maybe to javascript file) by raw loader
