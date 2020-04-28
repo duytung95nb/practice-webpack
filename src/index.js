@@ -3,6 +3,8 @@ import addIcon from './script/addIcon';
 import printMe from './script/print';
 import _ from 'lodash';
 import './assets/style/style.css';
+import './assets/style/style.scss';
+
 bar();
 printMe();
 function component() {
