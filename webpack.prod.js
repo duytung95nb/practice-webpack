@@ -3,6 +3,9 @@ const CompressionPlugin = require('compression-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const merge = require('webpack-merge');
 const common = require('./webpack.common');
+const WorkboxPlugin = require('workbox-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = merge(common,
     {
         mode: "production",
@@ -57,6 +60,15 @@ module.exports = merge(common,
             new MiniCssExtractPlugin({
                 filename: '[name].[hash].css',
                 chunkFilename: '[id].[hash].css',
+            }),
+            new HtmlWebpackPlugin({
+                title: 'Progressive Web Application',
+            }),
+            new WorkboxPlugin.GenerateSW({
+              // these options encourage the ServiceWorkers to get in there fast
+              // and not allow any straggling "old" SWs to hang around
+              clientsClaim: true,
+              skipWaiting: true,
             }),
         ],
     })
